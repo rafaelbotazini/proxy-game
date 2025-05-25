@@ -46,17 +46,27 @@ func _update_animation(direction: Vector2):
 		if direction.x != 0:
 			sprite.flip_h = direction.x < 0
 
+@onready var attack_area = $AttackArea
+
+func _ready():
+	attack_area.connect("body_entered", _on_attack_hit)
+	attack_area.monitoring = false  # só ativa durante o ataque
+
 func start_attack():
 	is_attacking = true
 	sprite.play("attack")
+	attack_area.monitoring = true  # ativa hitbox
 
-	# await serve para esperar a animação terminar.
 	await sprite.animation_finished
 
 	is_attacking = false
+	attack_area.monitoring = false  # desativa após o ataque
 
-	# Retorna para idle ou walking dependendo do movimento
 	if direction == Vector2.ZERO:
 		sprite.play("idle")
 	else:
 		sprite.play("player_walking")
+
+func _on_attack_hit(body):
+	if body.is_in_group("enemies"):
+		body.take_damage(1) 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmoejs2fss0sk"]
+[gd_scene load_steps=20 format=3 uid="uid://cmoejs2fss0sk"]
 
 [ext_resource type="Script" uid="uid://cnelpskv26s42" path="res://player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://cx43eaegoa2md" path="res://spritesheet_player.png" id="1_xhfnw"]
@@ -120,22 +120,19 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
+size = Vector2(25, 11)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kpjcp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(81, 82)
 sprite_frames = SubResource("SpriteFrames_hp6x6")
-animation = &"player_walking"
-frame = 1
-frame_progress = 0.751906
+animation = &"attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(76, 73)
 zoom = Vector2(2.8, 2.8)
 limit_left = 0
@@ -143,3 +140,13 @@ limit_top = 0
 limit_right = 2600
 limit_bottom = 660
 limit_smoothed = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(94.5, 69.5)
+shape = SubResource("RectangleShape2D_kne1u")
+one_way_collision_margin = 0.0
+debug_color = Color(0.0709881, 0.59655, 0.707565, 0.42)

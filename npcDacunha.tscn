@@ -130,11 +130,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nqqh"]
-size = Vector2(8.375, 34.875)
+size = Vector2(23, 57)
 
 [node name="Npc" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["enemies"]]
+collision_layer = 3
+collision_mask = 0
 script = ExtResource("1_2nqqh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
@@ -144,5 +146,5 @@ animation = &"npcIdle"
 frame_progress = 0.367503
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1.1875, 0.4375)
+position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_2nqqh")

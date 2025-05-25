@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=640
 window/size/viewport_height=320
 
+[global_group]
+
+enemies=""
+
 [input]
 
 up={

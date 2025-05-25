@@ -15,7 +15,6 @@ texture = ExtResource("1_2jh14")
 
 [node name="Player" parent="Sprite2D" instance=ExtResource("2_70f7c")]
 position = Vector2(740, 63)
-collision_mask = 3
 
 [node name="Npc" parent="Sprite2D" instance=ExtResource("3_q8ihy")]
 position = Vector2(977, 145)
