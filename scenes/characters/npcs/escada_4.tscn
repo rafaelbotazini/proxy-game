@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7tqa5ui7670l"]
+
+[ext_resource type="Texture2D" uid="uid://b7e287wmssxc1" path="res://assets/characters/npcs/escada_npc4-Sheet.png" id="1_hu574"]
+[ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="2_druvs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpk51"]
+atlas = ExtResource("1_hu574")
+region = Rect2(0, 0, 35, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq2d6"]
+atlas = ExtResource("1_hu574")
+region = Rect2(35, 0, 35, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iskni"]
+atlas = ExtResource("1_hu574")
+region = Rect2(70, 0, 35, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnkwo"]
+atlas = ExtResource("1_hu574")
+region = Rect2(105, 0, 35, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvv5g"]
+atlas = ExtResource("1_hu574")
+region = Rect2(140, 0, 35, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ybn6"]
+atlas = ExtResource("1_hu574")
+region = Rect2(175, 0, 35, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5081u"]
+atlas = ExtResource("1_hu574")
+region = Rect2(210, 0, 35, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ss8bv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpk51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq2d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iskni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnkwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvv5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ybn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5081u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ss8bv")
+frame_progress = 0.908336
+script = ExtResource("2_druvs")

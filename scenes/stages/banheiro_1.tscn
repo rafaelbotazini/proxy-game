@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1yy8sknk3njw"]
+
+[ext_resource type="Texture2D" uid="uid://cwcxqodflw1sg" path="res://assets/backgrounds/Banheiro_1.png" id="1_tinuo"]
+[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/Player.tscn" id="2_0yclo"]
+[ext_resource type="Texture2D" uid="uid://b41s5xvllbxc0" path="res://assets/props/Pia_banheiro_1.png" id="3_0yclo"]
+[ext_resource type="Script" uid="uid://fj72qpwrpi8w" path="res://scripts/saida_banheiro1.gd" id="4_yb6n8"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_eopt7"]
+a = Vector2(-11, 2)
+b = Vector2(16, 30)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(347, 123)
+texture = ExtResource("1_tinuo")
+
+[node name="y_sorting" type="Node2D" parent="."]
+
+[node name="Player" parent="y_sorting" instance=ExtResource("2_0yclo")]
+position = Vector2(477, 204)
+
+[node name="RegenTimer" type="Timer" parent="y_sorting/Player"]
+wait_time = 15.0
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="y_sorting"]
+texture_filter = 1
+position = Vector2(347, 124)
+texture = ExtResource("3_0yclo")
+
+[node name="Area2D" type="Area2D" parent="y_sorting"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("4_yb6n8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/Area2D"]
+position = Vector2(525, 180)
+shape = SubResource("SegmentShape2D_eopt7")
+
+[node name="Spawn_banheiro_1" type="Marker2D" parent="."]
+position = Vector2(511, 200)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(568, 240, 542, 213, 542, 208, 514, 181, 473, 145, 418, 138, 412, 145, 403, 146, 383, 128, 359, 128, 359, 145, 298, 146, 282, 132, 242, 133, 190, 133, 186, 139, 129, 135, 130, 240, 568, 244, 568, 248, 122, 246, 128, 119, 470, 120, 567, 227, 573, 246)

@@ -1,0 +1,122 @@
+[gd_scene load_steps=19 format=3 uid="uid://bv463bw71tjeh"]
+
+[ext_resource type="PackedScene" uid="uid://6pfcticixmap" path="res://scenes/characters/enemies/npcDacunha.tscn" id="1_a5jdk"]
+[ext_resource type="Texture2D" uid="uid://cbwi4b32v7g3f" path="res://assets/characters/enemies/girl1/girl1_idle-Sheet.png" id="2_a5jdk"]
+[ext_resource type="Texture2D" uid="uid://bvelhpoki3ci4" path="res://assets/characters/enemies/girl1/girl1_walking-Sheet.png" id="3_6q8n5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5jdk"]
+atlas = ExtResource("2_a5jdk")
+region = Rect2(0, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q8n5"]
+atlas = ExtResource("2_a5jdk")
+region = Rect2(49, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5cxe"]
+atlas = ExtResource("2_a5jdk")
+region = Rect2(98, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2aoo"]
+atlas = ExtResource("2_a5jdk")
+region = Rect2(147, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgasf"]
+atlas = ExtResource("2_a5jdk")
+region = Rect2(196, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n746h"]
+atlas = ExtResource("2_a5jdk")
+region = Rect2(245, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iody3"]
+atlas = ExtResource("2_a5jdk")
+region = Rect2(294, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62ldr"]
+atlas = ExtResource("3_6q8n5")
+region = Rect2(0, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afgtv"]
+atlas = ExtResource("3_6q8n5")
+region = Rect2(49, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jri7c"]
+atlas = ExtResource("3_6q8n5")
+region = Rect2(98, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtltf"]
+atlas = ExtResource("3_6q8n5")
+region = Rect2(147, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8c4f"]
+atlas = ExtResource("3_6q8n5")
+region = Rect2(196, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtwgb"]
+atlas = ExtResource("3_6q8n5")
+region = Rect2(245, 0, 49, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d40uf"]
+atlas = ExtResource("3_6q8n5")
+region = Rect2(294, 0, 49, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_va1vg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5jdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q8n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5cxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2aoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgasf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n746h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iody3")
+}],
+"loop": true,
+"name": &"npcIdle",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62ldr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afgtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jri7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtltf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8c4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtwgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d40uf")
+}],
+"loop": true,
+"name": &"npcWalking",
+"speed": 10.0
+}]
+
+[node name="Npc" instance=ExtResource("1_a5jdk")]
+
+[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0"]
+sprite_frames = SubResource("SpriteFrames_va1vg")
+animation = &"npcWalking"

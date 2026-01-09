@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dt5bica7yawwj"]
+
+[ext_resource type="Texture2D" uid="uid://d1upa4w1p1r54" path="res://assets/characters/npcs/Npc_jaqueta_idle-Sheet.png" id="1_xkfuj"]
+[ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="2_v864j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00d1f"]
+atlas = ExtResource("1_xkfuj")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1eaq"]
+atlas = ExtResource("1_xkfuj")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p82rs"]
+atlas = ExtResource("1_xkfuj")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x2h1"]
+atlas = ExtResource("1_xkfuj")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o2my"]
+atlas = ExtResource("1_xkfuj")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjrxu"]
+atlas = ExtResource("1_xkfuj")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_boicv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00d1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1eaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p82rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x2h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o2my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjrxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -25)
+sprite_frames = SubResource("SpriteFrames_boicv")
+frame_progress = 0.0868948
+flip_h = true
+script = ExtResource("2_v864j")

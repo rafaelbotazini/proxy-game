@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bee32hc0iq5x3"]
+
+[ext_resource type="Texture2D" uid="uid://cxvgoi24eyhn0" path="res://assets/props/strada_preto.png" id="1_sojis"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wauv7"]
+atlas = ExtResource("1_sojis")
+region = Rect2(0, 0, 168, 126)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kjyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wauv7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3, 2)
+sprite_frames = SubResource("SpriteFrames_5kjyi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(4, -11)
+polygon = PackedVector2Array(-69, -5, -6, 62, 89, 60, 6, -26, -69, -21)

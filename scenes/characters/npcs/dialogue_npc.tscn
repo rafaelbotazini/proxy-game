@@ -1,0 +1,138 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3noq4cawxqeh"]
+
+[ext_resource type="Script" uid="uid://dj2t0pchupy2b" path="res://scripts/dialogue_npc.gd" id="1_r5md2"]
+[ext_resource type="Texture2D" uid="uid://bujl5plnmc2ny" path="res://assets/characters/npcs/moraes.png" id="2_oyxfg"]
+[ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="3_xmgen"]
+[ext_resource type="Script" uid="uid://p1qf4lgw4qmm" path="res://scripts/interaction_area.gd" id="4_k8ffb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5md2"]
+atlas = ExtResource("2_oyxfg")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyxfg"]
+atlas = ExtResource("2_oyxfg")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmgen"]
+atlas = ExtResource("2_oyxfg")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8ffb"]
+atlas = ExtResource("2_oyxfg")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvca0"]
+atlas = ExtResource("2_oyxfg")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrp31"]
+atlas = ExtResource("2_oyxfg")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cuc78"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5md2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyxfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmgen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8ffb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvca0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrp31")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ni6"]
+size = Vector2(35, 20)
+
+[sub_resource type="FontFile" id="FontFile_r5md2"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+
+[node name="DialogueNpc" type="Node2D"]
+script = ExtResource("1_r5md2")
+
+[node name="sprite_2d" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="sprite_2d"]
+texture_filter = 1
+position = Vector2(-4, -19)
+sprite_frames = SubResource("SpriteFrames_cuc78")
+script = ExtResource("3_xmgen")
+
+[node name="interaction_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_k8ffb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_y4ni6")
+
+[node name="DialogueBubble" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -50.0
+offset_top = -80.0
+offset_right = -10.0
+offset_bottom = -40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBubble"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 0
+offset_top = 2.0
+offset_right = 220.0
+offset_bottom = 39.0
+
+[node name="Label" type="Label" parent="DialogueBubble/PanelContainer"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = SubResource("FontFile_r5md2")
+theme_override_font_sizes/font_size = 5
+text = "Tá atrasado! vamos logo na sala 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]

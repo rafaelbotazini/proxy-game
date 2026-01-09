@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8crq4l2o5x0k"]
+
+[ext_resource type="Texture2D" uid="uid://cixxsu0gk8oev" path="res://assets/characters/npcs/Escada_npc7-Sheet.png" id="1_x5g5n"]
+[ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="2_m8aa3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l64jt"]
+atlas = ExtResource("1_x5g5n")
+region = Rect2(0, 0, 23, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7875"]
+atlas = ExtResource("1_x5g5n")
+region = Rect2(23, 0, 23, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3fku"]
+atlas = ExtResource("1_x5g5n")
+region = Rect2(46, 0, 23, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl5vb"]
+atlas = ExtResource("1_x5g5n")
+region = Rect2(69, 0, 23, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu0vj"]
+atlas = ExtResource("1_x5g5n")
+region = Rect2(92, 0, 23, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4fj8"]
+atlas = ExtResource("1_x5g5n")
+region = Rect2(115, 0, 23, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc70e"]
+atlas = ExtResource("1_x5g5n")
+region = Rect2(138, 0, 23, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jf2ee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l64jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7875")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3fku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl5vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu0vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4fj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc70e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -13)
+sprite_frames = SubResource("SpriteFrames_jf2ee")
+frame_progress = 0.455785
+script = ExtResource("2_m8aa3")

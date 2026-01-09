@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp4k0f4ogeuti"]
+
+[ext_resource type="Texture2D" uid="uid://fbow2nfmmkq4" path="res://assets/props/palio.png" id="1_higld"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb67e"]
+atlas = ExtResource("1_higld")
+region = Rect2(0, 0, 192, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s18ym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb67e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(27, -25)
+sprite_frames = SubResource("SpriteFrames_s18ym")

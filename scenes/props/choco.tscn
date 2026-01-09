@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bss71diw12q3n"]
+
+[ext_resource type="Texture2D" uid="uid://dvcbytwrl6xs" path="res://assets/props/choco.png" id="1_kroy6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68qm7"]
+atlas = ExtResource("1_kroy6")
+region = Rect2(0, 0, 188, 188)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsprv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68qm7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="choco" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(15, -76)
+sprite_frames = SubResource("SpriteFrames_gsprv")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-18.9582, -58.9784)
+rotation = -0.480862
+scale = Vector2(1.17243, 1)
+polygon = PackedVector2Array(-29.2557, 62.5628, 26.2143, 88.1182, 32.9199, -35.1559, -24.2556, -64.4886)

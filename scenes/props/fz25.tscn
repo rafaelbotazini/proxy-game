@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dftcn8plqlgyf"]
+
+[ext_resource type="Texture2D" uid="uid://dwfwuvpjh4ovy" path="res://assets/props/fz25.png" id="1_vu5jt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mcts"]
+atlas = ExtResource("1_vu5jt")
+region = Rect2(0, 0, 94, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5j2ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mcts")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_5j2ag")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bep1gq5gyvoa4"]
+
+[ext_resource type="Texture2D" uid="uid://bboglxdye1baj" path="res://assets/backgrounds/LAB.png" id="1_dpunj"]
+[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/Player.tscn" id="2_wltnf"]
+[ext_resource type="Script" uid="uid://e2vb5a2272u6" path="res://scripts/porta_labs.gd" id="3_1frpc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mquel"]
+size = Vector2(38, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(382, 184)
+texture = ExtResource("1_dpunj")
+
+[node name="y_sorting" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="y_sorting" instance=ExtResource("2_wltnf")]
+position = Vector2(485, 214)
+
+[node name="RegenTimer" type="Timer" parent="y_sorting/Player"]
+wait_time = 15.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="y_sorting"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("3_1frpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/Area2D"]
+position = Vector2(527, 174)
+shape = SubResource("RectangleShape2D_mquel")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(564, 184, 562, 189, 562, 213, 710, 364, 88, 361, 103, 275, 114, 262, 194, 263, 214, 240, 219, 223, 235, 224, 252, 202, 251, 194, 484, 193, 490, 184, 563, 183, 562, 172, 176, 175, 73, 297, 76, 372, 776, 382, 564, 182)

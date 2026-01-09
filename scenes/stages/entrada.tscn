@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://chb3iwv7uor"]
+
+[ext_resource type="Script" uid="uid://foeq67uf6njc" path="res://scripts/entrada.gd" id="1_u3coe"]
+[ext_resource type="Texture2D" uid="uid://crb6bvj7ijahu" path="res://assets/backgrounds/entrada.png" id="1_y4pcb"]
+[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/Player.tscn" id="2_q73e0"]
+[ext_resource type="Script" uid="uid://b84f8u4ooookc" path="res://scripts/entrada_escada.gd" id="4_u3coe"]
+[ext_resource type="Texture2D" uid="uid://c5ipapoieb86e" path="res://assets/ui/VidaFundo.png" id="5_vfpel"]
+[ext_resource type="Texture2D" uid="uid://tcso3rygu827" path="res://assets/ui/VidaBarra.png" id="6_4er08"]
+[ext_resource type="Script" uid="uid://chyiak4g3nvgo" path="res://scripts/progress_bar.gd" id="7_14l6t"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kvovc"]
+a = Vector2(82, 152)
+b = Vector2(47, 206)
+
+[sub_resource type="GDScript" id="GDScript_qvomv"]
+script/source = "extends Area2D
+
+@export var spawn_destino := \"porta_entradaS\"
+@export var proxima_cena : String = \"res://mapa.tscn\"
+
+func _ready():
+	# Conecta o sinal body_entered à função _on_body_entered
+	body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body: Node):
+	if body.is_in_group(\"Player\"):
+
+		Global.spawn_id = spawn_destino
+		call_deferred(\"_trocar_cena\")
+
+
+
+func _trocar_cena():
+	get_tree().change_scene_to_file(proxima_cena)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvomv"]
+size = Vector2(20, 68.5)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_u3coe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(335, 105)
+texture = ExtResource("1_y4pcb")
+
+[node name="Spawn_porta_entrada" type="Marker2D" parent="."]
+position = Vector2(660, 166)
+
+[node name="y_sorting" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="y_sorting" instance=ExtResource("2_q73e0")]
+position = Vector2(605, 170)
+
+[node name="RegenTimer" type="Timer" parent="y_sorting/Player"]
+wait_time = 15.0
+autostart = true
+
+[node name="porta_escada" type="Area2D" parent="y_sorting"]
+position = Vector2(335, 105)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("4_u3coe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/porta_escada"]
+position = Vector2(-335, -105)
+shape = SubResource("SegmentShape2D_kvovc")
+
+[node name="porta_mapa" type="Area2D" parent="y_sorting"]
+position = Vector2(335, 105)
+collision_layer = 16
+collision_mask = 2
+script = SubResource("GDScript_qvomv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/porta_mapa"]
+position = Vector2(343, 68)
+shape = SubResource("RectangleShape2D_qvomv")
+
+[node name="Spawn_escada_entrada" type="Marker2D" parent="."]
+position = Vector2(81, 181)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -154.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 76.0
+grow_horizontal = 0
+value = 5.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -303.0
+offset_top = 8.0
+offset_right = -11.0
+offset_bottom = 66.0
+grow_horizontal = 0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("5_vfpel")
+texture_progress = ExtResource("6_4er08")
+script = ExtResource("7_14l6t")
+player = NodePath("../../y_sorting/Player")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(43, 207, 81, 150, 85, 152, 308, 154, 317, 150, 335, 153, 341, 145, 342, 132, 376, 131, 376, 138, 413, 138, 417, 131, 486, 131, 485, 109, 554, 109, 594, 151, 670, 150, 669, 209, 0, 209, -1, 209, 679, 214, 674, -5, -7, -6, -2, 208)

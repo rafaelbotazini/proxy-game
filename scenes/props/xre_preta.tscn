@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://m5pgkupabuay"]
+
+[ext_resource type="Texture2D" uid="uid://cjg3l2im5hje5" path="res://assets/props/xre_preta.png" id="1_clm3y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgy33"]
+atlas = ExtResource("1_clm3y")
+region = Rect2(0, 0, 93, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_upd0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgy33")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -12)
+sprite_frames = SubResource("SpriteFrames_upd0g")

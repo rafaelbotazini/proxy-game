@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfojxh3f2k58g"]
+
+[ext_resource type="Texture2D" uid="uid://t062om6dvrio" path="res://assets/characters/npcs/esvada_npc9-Sheet.png" id="1_f503d"]
+[ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="2_e2o5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abr5b"]
+atlas = ExtResource("1_f503d")
+region = Rect2(0, 0, 57, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmmy2"]
+atlas = ExtResource("1_f503d")
+region = Rect2(57, 0, 57, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csb3a"]
+atlas = ExtResource("1_f503d")
+region = Rect2(114, 0, 57, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gushq"]
+atlas = ExtResource("1_f503d")
+region = Rect2(171, 0, 57, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jfep"]
+atlas = ExtResource("1_f503d")
+region = Rect2(228, 0, 57, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sw6n"]
+atlas = ExtResource("1_f503d")
+region = Rect2(285, 0, 57, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r17q"]
+atlas = ExtResource("1_f503d")
+region = Rect2(342, 0, 57, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2lxg"]
+atlas = ExtResource("1_f503d")
+region = Rect2(399, 0, 57, 82)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4c4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abr5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmmy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csb3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gushq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jfep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sw6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r17q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2lxg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -27)
+sprite_frames = SubResource("SpriteFrames_l4c4m")
+frame_progress = 0.181743
+script = ExtResource("2_e2o5a")

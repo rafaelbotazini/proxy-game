@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf1u40qn5b4df"]
+
+[ext_resource type="Texture2D" uid="uid://fhbmt2gw0cy7" path="res://assets/characters/npcs/Escada_npc6-Sheet.png" id="1_xywwe"]
+[ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="2_fxr2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kc5b"]
+atlas = ExtResource("1_xywwe")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1gv3"]
+atlas = ExtResource("1_xywwe")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svuof"]
+atlas = ExtResource("1_xywwe")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1u3a"]
+atlas = ExtResource("1_xywwe")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwese"]
+atlas = ExtResource("1_xywwe")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1qkr"]
+atlas = ExtResource("1_xywwe")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0ott"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kc5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1gv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svuof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1u3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwese")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1qkr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -23)
+sprite_frames = SubResource("SpriteFrames_x0ott")
+frame_progress = 0.122319
+script = ExtResource("2_fxr2x")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfaxkyp4x45k8"]
+
+[ext_resource type="Texture2D" uid="uid://bm178ll581wea" path="res://assets/props/escadaria.png" id="1_qjbkx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2o1b"]
+atlas = ExtResource("1_qjbkx")
+region = Rect2(0, 0, 213, 193)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ts3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2o1b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(15, -11)
+sprite_frames = SubResource("SpriteFrames_6ts3x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(11, 64)
+polygon = PackedVector2Array(51, 9, -21, 9, -95, -65, 31, -61, 119, 7)

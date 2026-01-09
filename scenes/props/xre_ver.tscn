@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck73t5mmfgap7"]
+
+[ext_resource type="Texture2D" uid="uid://bkgxmmc04jn30" path="res://assets/props/xre_vermelha.png" id="1_oh4h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsmid"]
+atlas = ExtResource("1_oh4h3")
+region = Rect2(0, 0, 100, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1clp0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsmid")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3, -11)
+sprite_frames = SubResource("SpriteFrames_1clp0")

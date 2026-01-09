@@ -1,0 +1,169 @@
+[gd_scene load_steps=22 format=3 uid="uid://qlyt0ryys2fe"]
+
+[ext_resource type="Texture2D" uid="uid://dwpg4f0i2i7qv" path="res://assets/backgrounds/cenario_rua.png" id="1_i4mlq"]
+[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/Player.tscn" id="2_mutfd"]
+[ext_resource type="Script" uid="uid://dew5qrffopulf" path="res://scripts/rua.gd" id="4_mutfd"]
+[ext_resource type="Texture2D" uid="uid://xyokt6rngh2s" path="res://assets/effects/fumaça2.png" id="5_4mu73"]
+[ext_resource type="Texture2D" uid="uid://c5ipapoieb86e" path="res://assets/ui/VidaFundo.png" id="6_4mu73"]
+[ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="6_l7hk8"]
+[ext_resource type="PackedScene" uid="uid://cqnq3tu7bnati" path="res://scenes/characters/enemies/Noel.tscn" id="6_v7uy7"]
+[ext_resource type="Texture2D" uid="uid://tcso3rygu827" path="res://assets/ui/VidaBarra.png" id="7_l7hk8"]
+[ext_resource type="Script" uid="uid://chyiak4g3nvgo" path="res://scripts/progress_bar.gd" id="8_v7uy7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixla5"]
+size = Vector2(17.9996, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7hk8"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7uy7"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugtyh"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo83o"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lebo"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0iud"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10cyj"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kravc"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(350, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww0hi"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(400, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7lak"]
+atlas = ExtResource("5_4mu73")
+region = Rect2(450, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1fdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7hk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7uy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugtyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo83o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lebo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0iud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10cyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kravc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww0hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7lak")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(502, 168)
+texture = ExtResource("1_i4mlq")
+
+[node name="y_sorting" type="Node2D" parent="Sprite2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="Sprite2D/y_sorting" instance=ExtResource("2_mutfd")]
+position = Vector2(218, 21)
+
+[node name="RegenTimer" type="Timer" parent="Sprite2D/y_sorting/Player"]
+wait_time = 15.0
+autostart = true
+
+[node name="porta" type="Area2D" parent="Sprite2D/y_sorting"]
+position = Vector2(-1284, -106)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("4_mutfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/y_sorting/porta"]
+position = Vector2(792, 141)
+shape = SubResource("RectangleShape2D_ixla5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/y_sorting"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D/y_sorting/Sprite2D"]
+position = Vector2(299.5, -72)
+scale = Vector2(1.54, 1)
+sprite_frames = SubResource("SpriteFrames_o1fdl")
+frame_progress = 0.488689
+script = ExtResource("6_l7hk8")
+
+[node name="Npc" parent="Sprite2D/y_sorting" instance=ExtResource("6_v7uy7")]
+position = Vector2(-400, 34)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -154.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 76.0
+grow_horizontal = 0
+value = 5.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -303.0
+offset_top = 8.0
+offset_right = -11.0
+offset_bottom = 66.0
+grow_horizontal = 0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_4mu73")
+texture_progress = ExtResource("7_l7hk8")
+script = ExtResource("8_v7uy7")
+player = NodePath("../../Sprite2D/y_sorting/Player")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(4, 4, 5, 97, 4, 278, 755, 284, 745, 93, 8, 92, 5, 0, 1002, 2, 1007, 336, -11, 342)

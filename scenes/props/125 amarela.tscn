@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b48sni7ifss4a"]
+
+[ext_resource type="Texture2D" uid="uid://btb6ymh4o1732" path="res://assets/props/cg125_amarela.png" id="1_xk0m5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnh6q"]
+atlas = ExtResource("1_xk0m5")
+region = Rect2(0, 0, 76, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p13gk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnh6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -9)
+sprite_frames = SubResource("SpriteFrames_p13gk")

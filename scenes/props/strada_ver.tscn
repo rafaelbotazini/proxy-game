@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://uss6b2i8vx3x"]
+
+[ext_resource type="Texture2D" uid="uid://d0gh42xaiwd8n" path="res://assets/props/strada_vermelho.png" id="1_6m17s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps6t5"]
+atlas = ExtResource("1_6m17s")
+region = Rect2(0, 0, 169, 151)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcnvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps6t5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, 10)
+sprite_frames = SubResource("SpriteFrames_xcnvy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-83, -13, -14, 71, 79, 70, -10, -18)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd6ptp8j7ckak"]
+
+[ext_resource type="Texture2D" uid="uid://c5x8asesuepnw" path="res://assets/props/poste_encima.png" id="1_h4y50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ilup"]
+atlas = ExtResource("1_h4y50")
+region = Rect2(0, 0, 53, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4oscw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ilup")
+}],
+"loop": true,
+"name": &"poste cima",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4oscw")
+animation = &"poste cima"
+offset = Vector2(0, -21)

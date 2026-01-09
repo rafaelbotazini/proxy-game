@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://buh0fvxmedglb"]
+
+[ext_resource type="Texture2D" uid="uid://df4rcgtpcp6n2" path="res://assets/props/poste_embaixo.png" id="1_5jlom"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_codnp"]
+atlas = ExtResource("1_5jlom")
+region = Rect2(0, 0, 91, 258)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvp01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_codnp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PosteBaixo" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-7, -115)
+sprite_frames = SubResource("SpriteFrames_bvp01")
