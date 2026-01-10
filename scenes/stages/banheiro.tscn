@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1yy8sknk3njw"]
 
 [ext_resource type="Texture2D" uid="uid://cwcxqodflw1sg" path="res://assets/backgrounds/Banheiro_1.png" id="1_tinuo"]
-[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/Player.tscn" id="2_0yclo"]
+[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/player.b.tscn" id="2_0yclo"]
 [ext_resource type="Texture2D" uid="uid://b41s5xvllbxc0" path="res://assets/props/Pia_banheiro_1.png" id="3_0yclo"]
 [ext_resource type="Script" uid="uid://fj72qpwrpi8w" path="res://scripts/saida_banheiro1.gd" id="4_yb6n8"]
 

@@ -1,17 +1,12 @@
-extends CharacterBody2D
+extends Character
 
 class_name Player
 signal healthChanged
 
-@onready var sprite = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
 @onready var regen_timer: Timer = $RegenTimer
 
-@export var maxHealth = 15
-var currentHealth: int = maxHealth
-
 # Variáveis
-const SPEED = 90
 var is_attacking = false
 var direction := Vector2.ZERO
 var is_hurt := false
@@ -68,7 +63,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("up"):
 		direction.y -= 1
 
-	velocity = direction.normalized() * SPEED
+	velocity = direction.normalized() * speed
 	move_and_slide()
 	_update_animation(direction)
 
@@ -80,7 +75,7 @@ func _update_animation(direction: Vector2):
 	if direction == Vector2.ZERO:
 		sprite.play("idle")
 	else:
-		sprite.play("player_walking")
+		sprite.play("walking")
 		if direction.x != 0:
 			sprite.flip_h = direction.x < 0
 
@@ -113,8 +108,8 @@ func _ready():
 
 
 func _on_regen_timeout():
-	if currentHealth < maxHealth:
-		currentHealth += 2
+	if current_health < max_health:
+		current_health += 2
 		healthChanged.emit()
 
 func start_attack():
@@ -127,7 +122,7 @@ func start_attack():
 	if direction == Vector2.ZERO:
 		sprite.play("idle")
 	else:
-		sprite.play("player_walking")
+		sprite.play("walking")
 
 func _on_attack_hit(body):
 	if body.is_in_group("enemies"):
@@ -144,7 +139,7 @@ func take_damage(amount):
 
 	# Defend reduz dano
 	var final_damage = amount / 2 if is_defending else amount
-	currentHealth = clamp(currentHealth - final_damage, 0, maxHealth)
+	current_health = clamp(current_health - final_damage, 0, max_health)
 	healthChanged.emit()
 	flash_white()
 
@@ -156,7 +151,7 @@ func take_damage(amount):
 		enter_knockdown()
 		return
 
-	if currentHealth <= 0:
+	if current_health <= 0:
 		die()
 	else:
 		await get_tree().create_timer(0.5).timeout

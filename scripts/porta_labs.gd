@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var spawn_destino := "porta_lab"
-@export var proxima_cena : String = "res://scenes/stages/Proxy_lobby.tscn"
+@export var proxima_cena = StageManager.STAGES[StageManager.Stage.LOBBY]
 
 func _ready():
 	# Conecta o sinal body_entered à função _on_body_entered

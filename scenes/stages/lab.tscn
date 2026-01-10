@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bep1gq5gyvoa4"]
 
 [ext_resource type="Texture2D" uid="uid://bboglxdye1baj" path="res://assets/backgrounds/LAB.png" id="1_dpunj"]
-[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/Player.tscn" id="2_wltnf"]
+[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/player.b.tscn" id="2_wltnf"]
 [ext_resource type="Script" uid="uid://e2vb5a2272u6" path="res://scripts/porta_labs.gd" id="3_1frpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mquel"]

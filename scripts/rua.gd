@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var spawn_destino := "rua_proz"
-@export var proxima_cena : String = "res://scenes/stages/mapa.tscn"
+@export var proxima_cena = StageManager.STAGES[StageManager.Stage.MAPA]
 
 func _ready():
 	# Conecta o sinal body_entered à função _on_body_entered

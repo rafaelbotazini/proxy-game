@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://qlyt0ryys2fe"]
 
 [ext_resource type="Texture2D" uid="uid://dwpg4f0i2i7qv" path="res://assets/backgrounds/cenario_rua.png" id="1_i4mlq"]
-[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/Player.tscn" id="2_mutfd"]
+[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/player.b.tscn" id="2_mutfd"]
 [ext_resource type="Script" uid="uid://dew5qrffopulf" path="res://scripts/rua.gd" id="4_mutfd"]
 [ext_resource type="Texture2D" uid="uid://xyokt6rngh2s" path="res://assets/effects/fumaça2.png" id="5_4mu73"]
 [ext_resource type="Texture2D" uid="uid://c5ipapoieb86e" path="res://assets/ui/VidaFundo.png" id="6_4mu73"]

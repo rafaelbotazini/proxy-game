@@ -1,11 +1,7 @@
-[gd_scene load_steps=62 format=3 uid="uid://jc0lfcihae6t"]
+[gd_scene load_steps=58 format=3 uid="uid://jc0lfcihae6t"]
 
 [ext_resource type="Script" uid="uid://dy07qjjegy0gv" path="res://scripts/mapa.gd" id="1_c7foj"]
 [ext_resource type="Texture2D" uid="uid://2bvmgnp5mgvx" path="res://assets/backgrounds/background_remaster.png" id="2_hvldn"]
-[ext_resource type="Texture2D" uid="uid://c5ipapoieb86e" path="res://assets/ui/VidaFundo.png" id="3_bom07"]
-[ext_resource type="Texture2D" uid="uid://tcso3rygu827" path="res://assets/ui/VidaBarra.png" id="4_egvt5"]
-[ext_resource type="Script" uid="uid://chyiak4g3nvgo" path="res://scripts/progress_bar.gd" id="5_qk128"]
-[ext_resource type="PackedScene" uid="uid://cmoejs2fss0sk" path="res://scenes/characters/Player.tscn" id="6_4p1r5"]
 [ext_resource type="PackedScene" uid="uid://6pfcticixmap" path="res://scenes/characters/enemies/npcDacunha.tscn" id="7_uo4kc"]
 [ext_resource type="PackedScene" uid="uid://bt5cpykbb27ao" path="res://scenes/props/placa_seta.tscn" id="8_kbcj0"]
 [ext_resource type="PackedScene" uid="uid://dxocfuryln7ue" path="res://scenes/characters/enemies/npcF.tscn" id="9_vfqvf"]
@@ -43,9 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://b1yjq3kskki2l" path="res://scenes/characters/enemies/badguy2.tscn" id="41_5isnj"]
 [ext_resource type="PackedScene" uid="uid://b2nfqjplqr3bn" path="res://scenes/characters/enemies/badguy3.tscn" id="42_ymw8m"]
 [ext_resource type="PackedScene" uid="uid://c0wokp3c6gqag" path="res://scenes/characters/enemies/porteiro.tscn" id="43_8i50n"]
-[ext_resource type="PackedScene" uid="uid://bv463bw71tjeh" path="res://scenes/characters/npcs/girl1.tscn" id="44_7nwqt"]
-[ext_resource type="PackedScene" uid="uid://dki47ycwoldpt" path="res://scenes/characters/npcs/girl2.tscn" id="45_04sue"]
-[ext_resource type="PackedScene" uid="uid://bs8ia7n1ef6fm" path="res://scenes/characters/npcs/enf3.tscn" id="46_36s0r"]
+[ext_resource type="PackedScene" uid="uid://bv463bw71tjeh" path="res://scenes/characters/enemies/girl1.tscn" id="44_7nwqt"]
+[ext_resource type="PackedScene" uid="uid://dki47ycwoldpt" path="res://scenes/characters/enemies/girl2.tscn" id="45_04sue"]
+[ext_resource type="PackedScene" uid="uid://bs8ia7n1ef6fm" path="res://scenes/characters/enemies/enf3.tscn" id="46_36s0r"]
 [ext_resource type="Texture2D" uid="uid://bgveh522co8ca" path="res://assets/props/cerca.png" id="47_wphqw"]
 [ext_resource type="Texture2D" uid="uid://c3s1jwjgvro25" path="res://assets/effects/fumaça.png" id="48_k0vku"]
 [ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="49_rj37p"]
@@ -142,53 +138,11 @@ texture_filter = 1
 position = Vector2(1386, 342)
 texture = ExtResource("2_hvldn")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
-visible = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -154.0
-offset_top = 1.0
-offset_right = -2.0
-offset_bottom = 76.0
-grow_horizontal = 0
-value = 5.0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -303.0
-offset_top = 8.0
-offset_right = -11.0
-offset_bottom = 66.0
-grow_horizontal = 0
-nine_patch_stretch = true
-stretch_margin_left = 4
-stretch_margin_top = 4
-stretch_margin_right = 4
-stretch_margin_bottom = 4
-texture_under = ExtResource("3_bom07")
-texture_progress = ExtResource("4_egvt5")
-script = ExtResource("5_qk128")
-player = NodePath("../../y_sorting/Player")
-
 [node name="Spawn_porta_entradaS" type="Marker2D" parent="."]
 position = Vector2(803.574, 140.237)
 
 [node name="y_sorting" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="Player" parent="y_sorting" instance=ExtResource("6_4p1r5")]
-position = Vector2(1086.42, 594.006)
-scale = Vector2(1, 1.00474)
-collision_mask = 3
-
-[node name="RegenTimer" type="Timer" parent="y_sorting/Player"]
-wait_time = 15.0
-autostart = true
 
 [node name="NpcDacunha" parent="y_sorting" groups=["enemies"] instance=ExtResource("7_uo4kc")]
 position = Vector2(1213.36, 212.36)

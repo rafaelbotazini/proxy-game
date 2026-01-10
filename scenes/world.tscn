@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://da0tt62qj8k34"]
+
+[ext_resource type="Script" uid="uid://cd84nx4txni3b" path="res://scenes/world.gd" id="1_71j4m"]
+[ext_resource type="PackedScene" uid="uid://jc0lfcihae6t" path="res://scenes/stages/mapa.tscn" id="1_k0juu"]
+[ext_resource type="PackedScene" uid="uid://ct37lq1p726tl" path="res://scenes/ui/ui.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://chgh0pm3yvdg1" path="res://scenes/characters/player.tscn" id="4_k0juu"]
+[ext_resource type="Script" uid="uid://cbtmdvvxk6hcx" path="res://scenes/camera_2d.gd" id="5_71j4m"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_71j4m")
+
+[node name="UI" parent="." instance=ExtResource("3_4wyf3")]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("character")]
+position = Vector2(160, 90)
+limit_enabled = false
+script = ExtResource("5_71j4m")
+character = NodePath("../ActorsContainer/Player")
+
+[node name="Mapa" parent="." instance=ExtResource("1_k0juu")]
+position = Vector2(-685, -401)
+
+[node name="ActorsContainer" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="ActorsContainer" instance=ExtResource("4_k0juu")]
+position = Vector2(166, 146)
+collision_layer = 1

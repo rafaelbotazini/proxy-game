@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3noq4cawxqeh"]
+[gd_scene load_steps=15 format=3 uid="uid://b3noq4cawxqeh"]
 
 [ext_resource type="Script" uid="uid://dj2t0pchupy2b" path="res://scripts/dialogue_npc.gd" id="1_r5md2"]
 [ext_resource type="Texture2D" uid="uid://bujl5plnmc2ny" path="res://assets/characters/npcs/moraes.png" id="2_oyxfg"]
@@ -87,6 +87,60 @@ cache/0/5/0/descent = 0.0
 cache/0/5/0/underline_position = 0.0
 cache/0/5/0/underline_thickness = 0.0
 cache/0/5/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/9/0/ascent = 0.0
+cache/0/9/0/descent = 0.0
+cache/0/9/0/underline_position = 0.0
+cache/0/9/0/underline_thickness = 0.0
+cache/0/9/0/scale = 1.0
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+cache/0/7/0/ascent = 0.0
+cache/0/7/0/descent = 0.0
+cache/0/7/0/underline_position = 0.0
+cache/0/7/0/underline_thickness = 0.0
+cache/0/7/0/scale = 1.0
+cache/0/6/0/ascent = 0.0
+cache/0/6/0/descent = 0.0
+cache/0/6/0/underline_position = 0.0
+cache/0/6/0/underline_thickness = 0.0
+cache/0/6/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5egvo"]
+line_spacing = -1.0
+font_size = 8
 
 [node name="DialogueNpc" type="Node2D"]
 script = ExtResource("1_r5md2")
@@ -121,15 +175,17 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 0
 offset_top = 2.0
 offset_right = 220.0
-offset_bottom = 39.0
+offset_bottom = 37.0
 
 [node name="Label" type="Label" parent="DialogueBubble/PanelContainer"]
+custom_minimum_size = Vector2(50, 0)
 layout_direction = 2
 layout_mode = 2
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = SubResource("FontFile_r5md2")
 theme_override_font_sizes/font_size = 5
 text = "Tá atrasado! vamos logo na sala 2"
+label_settings = SubResource("LabelSettings_5egvo")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
