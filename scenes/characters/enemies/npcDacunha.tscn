@@ -1,6 +1,6 @@
 [gd_scene load_steps=59 format=3 uid="uid://6pfcticixmap"]
 
-[ext_resource type="Script" uid="uid://51un8hytt36l" path="res://scripts/character_body_2d.gd" id="1_2nqqh"]
+[ext_resource type="Script" uid="uid://51un8hytt36l" path="res://scenes/characters/enemies/npcDacunha.gd" id="1_2nqqh"]
 [ext_resource type="Texture2D" uid="uid://botdt4bwm4psi" path="res://assets/characters/enemies/dacunha/Npc_dacunha_idle_spritesheet.png" id="1_t41gg"]
 [ext_resource type="Texture2D" uid="uid://ygyr3qt8m3p4" path="res://assets/characters/enemies/dacunha/npc_attack_spritesheet.png" id="2_0beav"]
 [ext_resource type="Texture2D" uid="uid://b7vk8ar8emk00" path="res://assets/characters/enemies/dacunha/Npc_dacunha_walking_spritesheet.png" id="2_2nqqh"]
@@ -392,29 +392,29 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nqqh"]
 size = Vector2(26, 27)
 
-[node name="Npc" type="Node2D"]
-y_sort_enabled = true
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["enemies"]]
+[node name="npcDacunha" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
 script = ExtResource("1_2nqqh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_iwrum")
 animation = &"npcAttack"
 offset = Vector2(0, -20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -7.5)
 shape = SubResource("RectangleShape2D_2nqqh")
 
-[node name="AttackTimer" type="Timer" parent="CharacterBody2D"]
+[node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
 
-[node name="KnockdownTimer" type="Timer" parent="CharacterBody2D"]
+[node name="KnockdownTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Npc" type="Node2D" parent="."]
+y_sort_enabled = true

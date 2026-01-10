@@ -124,10 +124,10 @@ animations = [{
 
 [node name="Npc" instance=ExtResource("1_rmxx4")]
 
-[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_b52em")
 animation = &"npcWalking"
 frame_progress = 0.709455
 
-[node name="CollisionShape2D" parent="CharacterBody2D" index="1"]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -4)

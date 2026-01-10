@@ -117,6 +117,6 @@ animations = [{
 
 [node name="Npc" instance=ExtResource("1_a5jdk")]
 
-[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_va1vg")
 animation = &"npcWalking"

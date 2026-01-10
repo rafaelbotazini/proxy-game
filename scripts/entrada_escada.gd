@@ -2,7 +2,7 @@ extends Area2D
 
 # Caminho da próxima cena (você pode alterar no Inspector)
 @export var spawn_destino := "porta_entrada_lobby"
-@export var proxima_cena : String = StageManager.STAGES[StageManager.Stage.LOBBY]
+@export var proxima_cena : String = StageManager.STAGES_PATH[StageManager.StageArea.LOBBY]
 
 func _ready():
 	# Conecta o sinal body_entered à função _on_body_entered

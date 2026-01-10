@@ -124,7 +124,7 @@ animations = [{
 
 [node name="Npc" instance=ExtResource("1_4gppy")]
 
-[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xky3d")
 animation = &"npcIdle"
 frame_progress = 0.00260178

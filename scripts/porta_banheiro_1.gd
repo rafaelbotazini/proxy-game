@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var spawn_destino := "porta_banheiro1"
-@export var proxima_cena = StageManager.STAGES[StageManager.Stage.BANHEIRO]
+@export var proxima_cena = StageManager.STAGES_PATH[StageManager.StageArea.BANHEIRO]
 
 func _ready():
 	# Conecta o sinal body_entered à função _on_body_entered

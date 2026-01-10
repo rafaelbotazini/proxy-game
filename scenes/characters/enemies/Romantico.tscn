@@ -221,10 +221,8 @@ animations = [{
 
 [node name="Npc" instance=ExtResource("1_6vrq1")]
 
-[node name="CharacterBody2D" parent="." index="0"]
-wait_time = 0.0
-is_stationary = true
-
-[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(-1, -2)
 sprite_frames = SubResource("SpriteFrames_5mi7h")
+animation = &"npcIdle"
+autoplay = "npcIdle"

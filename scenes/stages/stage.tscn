@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbvhatrcm2bj3"]
+
+[ext_resource type="Script" uid="uid://bo6cdouteoh8c" path="res://scenes/stages/stage.gd" id="1_iinn4"]
+
+[node name="Stage" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_iinn4")
+
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="MainBackground" type="Sprite2D" parent="Backgrounds"]
+metadata/_edit_lock_ = true
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Default" type="Marker2D" parent="SpawnPoints"]
+
+[node name="Actors" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Enemies" type="Node2D" parent="Actors"]
+y_sort_enabled = true
+
+[node name="NPCs" type="Node2D" parent="Actors"]
+y_sort_enabled = true
+
+[node name="Props" type="Node2D" parent="Actors"]
+y_sort_enabled = true

@@ -117,7 +117,7 @@ animations = [{
 
 [node name="Npc" instance=ExtResource("1_nlf23")]
 
-[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_wk430")
 animation = &"npcWalking"
 frame_progress = 0.2289

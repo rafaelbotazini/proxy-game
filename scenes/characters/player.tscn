@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://chgh0pm3yvdg1"]
+[gd_scene load_steps=30 format=3 uid="uid://chgh0pm3yvdg1"]
 
 [ext_resource type="PackedScene" uid="uid://b4u55ma4yc7q1" path="res://scenes/characters/character.tscn" id="1_dyp2m"]
 [ext_resource type="Texture2D" uid="uid://cmend5r58y4lq" path="res://assets/characters/player/spritesheet_player_attack.png" id="2_atpat"]
+[ext_resource type="Script" uid="uid://clvcngibq4jii" path="res://scenes/characters/player.gd" id="2_kqtwu"]
 [ext_resource type="Texture2D" uid="uid://bfmnmvnc3lvly" path="res://assets/characters/player/player_defense-Sheet.png" id="3_kqtwu"]
 [ext_resource type="Texture2D" uid="uid://cx43eaegoa2md" path="res://assets/characters/player/spritesheet_player.png" id="4_6eyoc"]
 
@@ -188,7 +189,8 @@ height = 13.0
 
 [node name="Player" instance=ExtResource("1_dyp2m")]
 collision_layer = 2
-speed = 150.0
+script = ExtResource("2_kqtwu")
+speed = 120.0
 
 [node name="CharacterSprite" parent="." index="0"]
 position = Vector2(0, -4)

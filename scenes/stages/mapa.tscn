@@ -1,6 +1,6 @@
-[gd_scene load_steps=58 format=3 uid="uid://jc0lfcihae6t"]
+[gd_scene load_steps=58 format=3 uid="uid://nvi8iwjwgqa"]
 
-[ext_resource type="Script" uid="uid://dy07qjjegy0gv" path="res://scripts/mapa.gd" id="1_c7foj"]
+[ext_resource type="PackedScene" uid="uid://dbvhatrcm2bj3" path="res://scenes/stages/stage.tscn" id="1_lvuly"]
 [ext_resource type="Texture2D" uid="uid://2bvmgnp5mgvx" path="res://assets/backgrounds/background_remaster.png" id="2_hvldn"]
 [ext_resource type="PackedScene" uid="uid://6pfcticixmap" path="res://scenes/characters/enemies/npcDacunha.tscn" id="7_uo4kc"]
 [ext_resource type="PackedScene" uid="uid://bt5cpykbb27ao" path="res://scenes/props/placa_seta.tscn" id="8_kbcj0"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://m5pgkupabuay" path="res://scenes/props/xre_preta.tscn" id="26_lmrlt"]
 [ext_resource type="PackedScene" uid="uid://b48sni7ifss4a" path="res://scenes/props/125 amarela.tscn" id="27_pj2cg"]
 [ext_resource type="PackedScene" uid="uid://cp4k0f4ogeuti" path="res://scenes/props/palio.tscn" id="28_bftka"]
-[ext_resource type="Script" uid="uid://dfbm0wwmaca7p" path="res://scripts/porta.gd" id="29_31bru"]
 [ext_resource type="PackedScene" uid="uid://nalppx5sekgv" path="res://scenes/characters/npcs/npc_godao.tscn" id="30_bvjk2"]
 [ext_resource type="PackedScene" uid="uid://b42761ydv3j51" path="res://scenes/characters/npcs/npc_salg_1.tscn" id="31_xgoy4"]
 [ext_resource type="PackedScene" uid="uid://dt5bica7yawwj" path="res://scenes/characters/npcs/npc_jaqueta.tscn" id="32_12j3g"]
@@ -41,13 +40,11 @@
 [ext_resource type="PackedScene" uid="uid://c0wokp3c6gqag" path="res://scenes/characters/enemies/porteiro.tscn" id="43_8i50n"]
 [ext_resource type="PackedScene" uid="uid://bv463bw71tjeh" path="res://scenes/characters/enemies/girl1.tscn" id="44_7nwqt"]
 [ext_resource type="PackedScene" uid="uid://dki47ycwoldpt" path="res://scenes/characters/enemies/girl2.tscn" id="45_04sue"]
+[ext_resource type="Script" uid="uid://dcns00csgljcb" path="res://scenes/stages/portal.gd" id="45_hp7c2"]
 [ext_resource type="PackedScene" uid="uid://bs8ia7n1ef6fm" path="res://scenes/characters/enemies/enf3.tscn" id="46_36s0r"]
 [ext_resource type="Texture2D" uid="uid://bgveh522co8ca" path="res://assets/props/cerca.png" id="47_wphqw"]
 [ext_resource type="Texture2D" uid="uid://c3s1jwjgvro25" path="res://assets/effects/fumaça.png" id="48_k0vku"]
 [ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="49_rj37p"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ahop"]
-size = Vector2(4.00055, 88.1492)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbvx1"]
 atlas = ExtResource("48_k0vku")
@@ -89,7 +86,7 @@ region = Rect2(400, 0, 50, 50)
 atlas = ExtResource("48_k0vku")
 region = Rect2(450, 0, 50, 50)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_c6gmm"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hp7c2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -127,181 +124,176 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="Mapa" type="Node2D"]
-scale = Vector2(1.00053, 0.998307)
-script = ExtResource("1_c7foj")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7foj"]
+size = Vector2(16, 101)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Mapa" instance=ExtResource("1_lvuly")]
 
-[node name="MapaRua" type="Sprite2D" parent="Sprite2D"]
-texture_filter = 1
+[node name="MainBackground" parent="Backgrounds" index="0"]
 position = Vector2(1386, 342)
 texture = ExtResource("2_hvldn")
 
-[node name="Spawn_porta_entradaS" type="Marker2D" parent="."]
-position = Vector2(803.574, 140.237)
-
-[node name="y_sorting" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="NpcDacunha" parent="y_sorting" groups=["enemies"] instance=ExtResource("7_uo4kc")]
-position = Vector2(1213.36, 212.36)
-
-[node name="PlacaSeta" parent="y_sorting" instance=ExtResource("8_kbcj0")]
-position = Vector2(923.511, 397.673)
-scale = Vector2(0.655618, 0.780345)
-
-[node name="npcFIlipe" parent="y_sorting" groups=["enemies"] instance=ExtResource("9_vfqvf")]
-position = Vector2(1190.37, 202.343)
-
-[node name="StaticBody2D" parent="y_sorting" instance=ExtResource("10_5o17g")]
-position = Vector2(1234.35, 64.1085)
-
-[node name="PosteBaixo" parent="y_sorting" instance=ExtResource("11_dpfcm")]
-position = Vector2(1319.3, 451.765)
-
-[node name="choco" parent="y_sorting" instance=ExtResource("12_2obco")]
-position = Vector2(1568.17, 484.821)
-rotation = -0.0245755
-
-[node name="escada" parent="y_sorting" instance=ExtResource("13_cumq4")]
+[node name="escada" parent="Backgrounds" index="1" instance=ExtResource("13_cumq4")]
 position = Vector2(1843.02, 109.185)
 
-[node name="Escadaria" type="Sprite2D" parent="y_sorting/escada"]
+[node name="Escadaria" type="Sprite2D" parent="Backgrounds/escada" index="2"]
 texture_filter = 1
-position = Vector2(22.991, -1.00183)
+position = Vector2(22.990967, -1.001831)
 texture = ExtResource("14_s45m7")
 
-[node name="Node2D" parent="y_sorting/escada" instance=ExtResource("15_q3fcg")]
-position = Vector2(-16.9878, -54.0917)
+[node name="Default" parent="SpawnPoints" index="0"]
+position = Vector2(1096, 609)
 
-[node name="Node2D2" parent="y_sorting/escada" instance=ExtResource("16_n42lx")]
-position = Vector2(-34.9783, -56.0951)
+[node name="Entrada" type="Marker2D" parent="SpawnPoints" index="1"]
+position = Vector2(830, 141)
 
-[node name="Node2D3" parent="y_sorting/escada" instance=ExtResource("17_0rx1r")]
-position = Vector2(39.982, 18.0304)
+[node name="NpcDacunha" parent="Actors/Enemies" index="0" instance=ExtResource("7_uo4kc")]
+position = Vector2(1213.36, 212.36)
 
-[node name="Node2D4" parent="y_sorting/escada" instance=ExtResource("18_shnh1")]
-position = Vector2(8.9984, 19.0321)
+[node name="npcFIlipe" parent="Actors/Enemies" index="1" instance=ExtResource("9_vfqvf")]
+position = Vector2(1257, 211)
 
-[node name="pinos" parent="y_sorting" instance=ExtResource("19_nepf2")]
-position = Vector2(858.545, 179.304)
+[node name="romantico" parent="Actors/Enemies" index="2" instance=ExtResource("39_70422")]
+position = Vector2(1339, 463)
 
-[node name="strada_preto" parent="y_sorting" instance=ExtResource("20_7sm4e")]
-position = Vector2(2288.79, 266.451)
-
-[node name="fiesta" parent="y_sorting" instance=ExtResource("21_0hlxy")]
-position = Vector2(2097.89, 476.807)
-
-[node name="strada_ver" parent="y_sorting" instance=ExtResource("22_eg0ag")]
-position = Vector2(2234.82, 468.794)
-
-[node name="uno" parent="y_sorting" instance=ExtResource("23_eal7l")]
-position = Vector2(2352.75, 478.811)
-
-[node name="StaticBody2D2" parent="y_sorting" instance=ExtResource("24_0fxwn")]
-position = Vector2(835.557, 185.314)
-
-[node name="StaticBody2D3" parent="y_sorting" instance=ExtResource("25_gjgx3")]
-position = Vector2(828.561, 214.363)
-
-[node name="StaticBody2D4" parent="y_sorting" instance=ExtResource("26_lmrlt")]
-position = Vector2(789.582, 252.427)
-
-[node name="StaticBody2D5" parent="y_sorting" instance=ExtResource("27_pj2cg")]
-position = Vector2(815.568, 284.482)
-
-[node name="StaticBody2D6" parent="y_sorting" instance=ExtResource("28_bftka")]
-position = Vector2(702.628, 432.733)
-
-[node name="porta A" type="Area2D" parent="y_sorting"]
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("29_31bru")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/porta A"]
-position = Vector2(787.583, 114.193)
-shape = SubResource("RectangleShape2D_8ahop")
-
-[node name="Static_npc" type="Node2D" parent="y_sorting"]
-y_sort_enabled = true
-
-[node name="npc_godao" parent="y_sorting/Static_npc" instance=ExtResource("30_bvjk2")]
-position = Vector2(1293.31, 77.1306)
-
-[node name="npc_salg" parent="y_sorting/Static_npc" instance=ExtResource("31_xgoy4")]
-position = Vector2(1248.34, 71.1204)
-
-[node name="npc_jaqueta" parent="y_sorting/Static_npc" instance=ExtResource("32_12j3g")]
-position = Vector2(1311.31, 98.1662)
-
-[node name="enf_1" parent="y_sorting/Static_npc" instance=ExtResource("33_6xkur")]
-position = Vector2(914.515, 60.1018)
-
-[node name="Node2D5" parent="y_sorting/Static_npc" instance=ExtResource("34_42lib")]
-position = Vector2(1929.98, 196.332)
-
-[node name="Node2D6" parent="y_sorting/Static_npc" instance=ExtResource("35_yypyc")]
-position = Vector2(1962.96, 200.339)
-
-[node name="Node2D7" parent="y_sorting/Static_npc" instance=ExtResource("36_t51nd")]
-position = Vector2(1985.95, 201.341)
-
-[node name="Node2D8" parent="y_sorting/Static_npc" instance=ExtResource("37_crtvu")]
-position = Vector2(2011.93, 206.349)
-
-[node name="Node2D9" parent="y_sorting/Static_npc" instance=ExtResource("38_hbtho")]
-position = Vector2(2034.92, 214.363)
-
-[node name="romantico" parent="y_sorting" groups=["enemies"] instance=ExtResource("39_70422")]
-position = Vector2(1617.14, 517.877)
-
-[node name="badguy1" parent="y_sorting" groups=["enemies"] instance=ExtResource("40_0mmid")]
+[node name="badguy1" parent="Actors/Enemies" index="3" instance=ExtResource("40_0mmid")]
 position = Vector2(2105.88, 665.126)
 
-[node name="badguy2" parent="y_sorting" groups=["enemies"] instance=ExtResource("41_5isnj")]
+[node name="badguy2" parent="Actors/Enemies" index="4" instance=ExtResource("41_5isnj")]
 position = Vector2(2130.87, 644.09)
 
-[node name="badguy3" parent="y_sorting" groups=["enemies"] instance=ExtResource("42_ymw8m")]
+[node name="badguy3" parent="Actors/Enemies" index="5" instance=ExtResource("42_ymw8m")]
 position = Vector2(2167.85, 660.118)
 
-[node name="Npc5" parent="y_sorting" groups=["enemies"] instance=ExtResource("43_8i50n")]
+[node name="Npc5" parent="Actors/Enemies" index="6" instance=ExtResource("43_8i50n")]
 position = Vector2(961.49, 124.21)
 
-[node name="girl1" parent="y_sorting" groups=["enemies"] instance=ExtResource("44_7nwqt")]
-position = Vector2(1853.02, 278.471)
+[node name="girl1" parent="Actors/Enemies" index="7" instance=ExtResource("44_7nwqt")]
+position = Vector2(1886, 200)
 
-[node name="girl2" parent="y_sorting" groups=["enemies"] instance=ExtResource("45_04sue")]
-position = Vector2(767.593, 368.624)
+[node name="girl2" parent="Actors/Enemies" index="8" instance=ExtResource("45_04sue")]
+position = Vector2(759, 382)
 
-[node name="girl3" parent="y_sorting" groups=["enemies"] instance=ExtResource("46_36s0r")]
-position = Vector2(1628.14, 246.417)
+[node name="girl3" parent="Actors/Enemies" index="9" instance=ExtResource("46_36s0r")]
+position = Vector2(1277, 309)
 
-[node name="Sprite2D" type="Sprite2D" parent="y_sorting"]
+[node name="npc_godao" parent="Actors/NPCs" index="0" instance=ExtResource("30_bvjk2")]
+position = Vector2(1293.31, 77.1306)
+
+[node name="npc_salg" parent="Actors/NPCs" index="1" instance=ExtResource("31_xgoy4")]
+position = Vector2(1248.34, 71.1204)
+
+[node name="npc_jaqueta" parent="Actors/NPCs" index="2" instance=ExtResource("32_12j3g")]
+position = Vector2(1311.31, 98.1662)
+
+[node name="enf_1" parent="Actors/NPCs" index="3" instance=ExtResource("33_6xkur")]
+position = Vector2(914.515, 60.1018)
+
+[node name="Node2D5" parent="Actors/NPCs" index="4" instance=ExtResource("34_42lib")]
+position = Vector2(1929.98, 196.332)
+
+[node name="Node2D6" parent="Actors/NPCs" index="5" instance=ExtResource("35_yypyc")]
+position = Vector2(1962.96, 200.339)
+
+[node name="Node2D7" parent="Actors/NPCs" index="6" instance=ExtResource("36_t51nd")]
+position = Vector2(1985.95, 201.341)
+
+[node name="Node2D8" parent="Actors/NPCs" index="7" instance=ExtResource("37_crtvu")]
+position = Vector2(2011.93, 206.349)
+
+[node name="Node2D9" parent="Actors/NPCs" index="8" instance=ExtResource("38_hbtho")]
+position = Vector2(2034.92, 214.363)
+
+[node name="escada" type="Node2D" parent="Actors/NPCs" index="9"]
+
+[node name="Node2D2" parent="Actors/NPCs/escada" index="0" instance=ExtResource("16_n42lx")]
+position = Vector2(1808.0417, 53.089897)
+
+[node name="Node2D3" parent="Actors/NPCs/escada" index="1" instance=ExtResource("17_0rx1r")]
+position = Vector2(1883.0021, 127.21539)
+
+[node name="Node2D4" parent="Actors/NPCs/escada" index="2" instance=ExtResource("18_shnh1")]
+position = Vector2(1852.0184, 128.2171)
+
+[node name="Node2D" parent="Actors/NPCs/escada" index="3" instance=ExtResource("15_q3fcg")]
+position = Vector2(1826.0322, 55.093296)
+
+[node name="SceneWalls" type="StaticBody2D" parent="Actors/Props" index="0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Actors/Props/SceneWalls" index="0"]
+position = Vector2(1775, 193)
+polygon = PackedVector2Array(-813.51, -191.99661, -818.507, -177.9729, -859.485, -178.97461, -868.48, -160.944, -868.48, -92.82901, -875.477, -80.808, -894.467, -68.787994, -935.445, -66.785, -989.416, -66.785, -989.416, -23.712006, -1206.301, 288.817, -1232.2881, 314.862, -1266.27, 324.878, -1301.251, 325.88, -1774.0005, 325.88, -1773.0011, 487.153, 994.53, 484.148, 997.53, -4.679001, 927.57007, -4.679001, 921.57007, -14.695999, 722.67993, -14.695999, 722.67993, -4.679001, 702.68994, -4.679001, 643.72, -5.6809998, 620.73, -29.722, 536.77, -30.723999, 536.77, -5.6809998, 196.94995, -4.679001, 269.92004, -4.679001, 235.93005, 19.360992, 237.93005, 53.419006, 227.93994, 53.419006, 177.95996, -12.692993, 61.03003, -9.688004, -15.930054, -86.819, -29.920044, -149.9254, -410.71997, -150.9271, -409.71997, -25.714996, -420.71997, -20.707, -486.68005, -176.97119, -813.51, -194, -809.512, -197.0051, 1007.53, -206.02039, 1005.53, 493.16302, -1778.9978, 494.16498, -1780.9968, 287.816, -856.487, -188.99152)
+
+[node name="Cerca" type="StaticBody2D" parent="Actors/Props" index="1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Actors/Props/Cerca" index="0"]
+position = Vector2(1503, 411.00003)
+scale = Vector2(1.00085, 1.00906)
+polygon = PackedVector2Array(44.457443, 89.59514, 1.4772644, 101.61609, -104.46268, -102.72984, 59.447426, -36.61785)
+
+[node name="Sprite2D" type="Sprite2D" parent="Actors/Props/Cerca" index="1"]
 texture_filter = 1
 position = Vector2(1470.22, 381.646)
 texture = ExtResource("47_wphqw")
 
-[node name="Sprite2D2" type="Sprite2D" parent="y_sorting"]
+[node name="PlacaSeta" parent="Actors/Props" index="2" instance=ExtResource("8_kbcj0")]
+position = Vector2(923.511, 397.673)
+scale = Vector2(0.655618, 0.780345)
+
+[node name="StaticBody2D" parent="Actors/Props" index="3" instance=ExtResource("10_5o17g")]
+position = Vector2(1234.35, 64.1085)
+
+[node name="PosteBaixo" parent="Actors/Props" index="4" instance=ExtResource("11_dpfcm")]
+position = Vector2(1319.3, 451.765)
+
+[node name="choco" parent="Actors/Props" index="5" instance=ExtResource("12_2obco")]
+position = Vector2(1568.17, 484.821)
+rotation = -0.0245755
+
+[node name="pinos" parent="Actors/Props" index="6" instance=ExtResource("19_nepf2")]
+position = Vector2(858.545, 179.304)
+
+[node name="strada_preto" parent="Actors/Props" index="7" instance=ExtResource("20_7sm4e")]
+position = Vector2(2288.79, 266.451)
+
+[node name="fiesta" parent="Actors/Props" index="8" instance=ExtResource("21_0hlxy")]
+position = Vector2(2097.89, 476.807)
+
+[node name="strada_ver" parent="Actors/Props" index="9" instance=ExtResource("22_eg0ag")]
+position = Vector2(2234.82, 468.794)
+
+[node name="uno" parent="Actors/Props" index="10" instance=ExtResource("23_eal7l")]
+position = Vector2(2352.75, 478.811)
+
+[node name="StaticBody2D2" parent="Actors/Props" index="11" instance=ExtResource("24_0fxwn")]
+position = Vector2(835.557, 185.314)
+
+[node name="StaticBody2D3" parent="Actors/Props" index="12" instance=ExtResource("25_gjgx3")]
+position = Vector2(828.561, 214.363)
+
+[node name="StaticBody2D4" parent="Actors/Props" index="13" instance=ExtResource("26_lmrlt")]
+position = Vector2(789.582, 252.427)
+
+[node name="StaticBody2D5" parent="Actors/Props" index="14" instance=ExtResource("27_pj2cg")]
+position = Vector2(815.568, 284.482)
+
+[node name="StaticBody2D6" parent="Actors/Props" index="15" instance=ExtResource("28_bftka")]
+position = Vector2(702.628, 432.733)
+
+[node name="Fumaça" type="Sprite2D" parent="Actors/Props" index="16"]
 texture_filter = 1
-position = Vector2(1120.41, 270.458)
+position = Vector2(1255, 299)
 scale = Vector2(1.48152, 0.913759)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="y_sorting/Sprite2D2"]
-sprite_frames = SubResource("SpriteFrames_c6gmm")
-frame_progress = 0.586916
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Props/Fumaça" index="0"]
+sprite_frames = SubResource("SpriteFrames_hp7c2")
 script = ExtResource("49_rj37p")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Portal" type="Area2D" parent="." index="3"]
+position = Vector2(793, 118)
+script = ExtResource("45_hp7c2")
+stage_path = "res://scenes/stages/entrada.tscn"
+metadata/_custom_type_script = "uid://dcns00csgljcb"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(961.49, 2.00339, 956.493, 16.0271, 915.515, 15.0254, 906.52, 33.056, 906.52, 101.171, 899.523, 113.192, 880.533, 125.212, 839.555, 127.215, 785.584, 127.215, 785.584, 170.288, 568.699, 482.817, 542.712, 508.862, 508.73, 518.878, 473.749, 519.88, 0.99947, 519.88, 1.99894, 681.153, 2769.53, 678.148, 2772.53, 189.321, 2702.57, 189.321, 2696.57, 179.304, 2497.68, 179.304, 2497.68, 189.321, 2477.69, 189.321, 2418.72, 188.319, 2395.73, 164.278, 2311.77, 163.276, 2311.77, 188.319, 1971.95, 189.321, 2044.92, 189.321, 2010.93, 213.361, 2012.93, 247.419, 2002.94, 247.419, 1952.96, 181.307, 1836.03, 184.312, 1759.07, 107.181, 1745.08, 44.0746, 1364.28, 43.0729, 1365.28, 168.285, 1354.28, 173.293, 1288.32, 17.0288, 961.49, 0, 965.488, -3.00509, 2782.53, -12.0204, 2780.53, 687.163, -3.99788, 688.165, -5.99682, 481.816, 918.513, 5.00848)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-scale = Vector2(1.00085, 1.00906)
-polygon = PackedVector2Array(1547.18, 502.851, 1504.2, 514.872, 1398.26, 310.526, 1562.17, 376.638)
-
-[node name="Spawn_rua_proz" type="Marker2D" parent="."]
-position = Vector2(1106.41, 644.09)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" index="0"]
+shape = SubResource("RectangleShape2D_c7foj")

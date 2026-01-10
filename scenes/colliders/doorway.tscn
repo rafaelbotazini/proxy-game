@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://p0c81gmvp3rr"]
+
+[ext_resource type="Script" uid="uid://dcns00csgljcb" path="res://scenes/colliders/doorway.gd" id="1_daugn"]
+
+[node name="Doorway" type="Area2D"]
+collision_layer = 256
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_daugn")

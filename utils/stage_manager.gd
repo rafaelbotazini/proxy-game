@@ -1,6 +1,6 @@
 extends Node
 
-enum Stage {
+enum StageArea {
 	BANHEIRO,
 	ENTRADA,
 	LAB,
@@ -9,14 +9,13 @@ enum Stage {
 	RUA
 }
 
-var STAGES : Dictionary[Stage, String] = {
-	Stage.BANHEIRO: "res://scenes/stages/banheiro.tscn",
-	Stage.ENTRADA: "res://scenes/stages/entrada.tscn",
-	Stage.LAB: "res://scenes/stages/lab.tscn",
-	Stage.LOBBY: "res://scenes/stages/lobby.tscn",
-	Stage.MAPA: "res://scenes/stages/mapa.tscn",
-	Stage.RUA: "res://scenes/stages/rua.tscn"
+var STAGES_PATH : Dictionary[StageArea, String] = {
+	StageArea.BANHEIRO: "res://scenes/stages/banheiro.tscn",
+	StageArea.ENTRADA: "res://scenes/stages/entrada.tscn",
+	StageArea.LAB: "res://scenes/stages/lab.tscn",
+	StageArea.LOBBY: "res://scenes/stages/lobby.tscn",
+	StageArea.MAPA: "res://scenes/stages/mapa.tscn",
+	StageArea.RUA: "res://scenes/stages/rua.tscn"
 }
 
-func _ready() -> void:
-	pass # Replace with function body.
+signal stage_changed(stage: StageData)

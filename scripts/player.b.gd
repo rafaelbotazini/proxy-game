@@ -1,6 +1,5 @@
 extends Character
 
-class_name Player
 signal healthChanged
 
 @onready var attack_area = $AttackArea

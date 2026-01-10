@@ -7,10 +7,10 @@ enum State {ATTACK, DEFENSE, IDLE, KNOCKBACK, WALK}
 
 var anim_map = {
 	State.ATTACK: "attack",
-	State.WALK: "walk",
 	State.DEFENSE: "defense",
 	State.IDLE: "idle",
 	State.KNOCKBACK: "idle",
+	State.WALK: "walk",
 }
 
 @export var current_health = 40
@@ -25,13 +25,12 @@ func _process(delta: float) -> void:
 	handle_movement()
 	handle_animations()
 	handle_death(delta)
+	set_heading()
 	flip_sprites()
 	move_and_slide()
 
 func handle_input() -> void:
-	if can_move():
-		var direction = Input.get_vector("left", "right", "up", "down")
-		velocity = direction * speed
+	pass
 
 func handle_movement() -> void:
 	if can_move():
@@ -39,7 +38,6 @@ func handle_movement() -> void:
 			current_state = State.IDLE
 		else:
 			current_state = State.WALK
-			set_heading()
 
 func handle_animations() -> void:
 	var animation_name = anim_map[current_state]
@@ -50,10 +48,7 @@ func handle_death(_delta: float) -> void:
 	pass
 
 func set_heading() -> void:
-	if velocity.x > 0:
-		heading = Vector2.RIGHT
-	elif velocity.x < 0:
-		heading = Vector2.LEFT
+	pass
 
 func flip_sprites() -> void:
 	sprite.flip_h = heading == Vector2.LEFT

@@ -151,10 +151,6 @@ animations = [{
 
 [node name="Npc" instance=ExtResource("1_wcquy")]
 
-[node name="CharacterBody2D" parent="." index="0"]
-is_stationary = true
-activate_on_proximity = true
-
-[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_nep51")
 flip_h = true
