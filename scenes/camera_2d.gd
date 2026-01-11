@@ -1,3 +1,4 @@
+class_name WorldCamera
 extends Camera2D
 
 @export var character : Character

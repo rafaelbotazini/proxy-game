@@ -40,7 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://c0wokp3c6gqag" path="res://scenes/characters/enemies/porteiro.tscn" id="43_8i50n"]
 [ext_resource type="PackedScene" uid="uid://bv463bw71tjeh" path="res://scenes/characters/enemies/girl1.tscn" id="44_7nwqt"]
 [ext_resource type="PackedScene" uid="uid://dki47ycwoldpt" path="res://scenes/characters/enemies/girl2.tscn" id="45_04sue"]
-[ext_resource type="Script" uid="uid://dcns00csgljcb" path="res://scenes/stages/portal.gd" id="45_hp7c2"]
+[ext_resource type="PackedScene" uid="uid://p0c81gmvp3rr" path="res://scenes/colliders/doorway.tscn" id="45_huwi3"]
 [ext_resource type="PackedScene" uid="uid://bs8ia7n1ef6fm" path="res://scenes/characters/enemies/enf3.tscn" id="46_36s0r"]
 [ext_resource type="Texture2D" uid="uid://bgveh522co8ca" path="res://assets/props/cerca.png" id="47_wphqw"]
 [ext_resource type="Texture2D" uid="uid://c3s1jwjgvro25" path="res://assets/effects/fumaça.png" id="48_k0vku"]
@@ -124,8 +124,8 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7foj"]
-size = Vector2(16, 101)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp7c2"]
+size = Vector2(21.150635, 75.687805)
 
 [node name="Mapa" instance=ExtResource("1_lvuly")]
 
@@ -140,12 +140,6 @@ position = Vector2(1843.02, 109.185)
 texture_filter = 1
 position = Vector2(22.990967, -1.001831)
 texture = ExtResource("14_s45m7")
-
-[node name="Default" parent="SpawnPoints" index="0"]
-position = Vector2(1096, 609)
-
-[node name="Entrada" type="Marker2D" parent="SpawnPoints" index="1"]
-position = Vector2(830, 141)
 
 [node name="NpcDacunha" parent="Actors/Enemies" index="0" instance=ExtResource("7_uo4kc")]
 position = Vector2(1213.36, 212.36)
@@ -289,11 +283,16 @@ scale = Vector2(1.48152, 0.913759)
 sprite_frames = SubResource("SpriteFrames_hp7c2")
 script = ExtResource("49_rj37p")
 
-[node name="Portal" type="Area2D" parent="." index="3"]
-position = Vector2(793, 118)
-script = ExtResource("45_hp7c2")
-stage_path = "res://scenes/stages/entrada.tscn"
-metadata/_custom_type_script = "uid://dcns00csgljcb"
+[node name="Default" parent="SpawnPoints" index="0"]
+position = Vector2(1003, 155)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" index="0"]
-shape = SubResource("RectangleShape2D_c7foj")
+[node name="EntradaPortaFrente" type="Marker2D" parent="SpawnPoints" index="1"]
+position = Vector2(830, 141)
+
+[node name="Doorway" parent="." index="3" instance=ExtResource("45_huwi3")]
+position = Vector2(795, 132)
+stage_path = "res://scenes/stages/entrada.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorway" index="0"]
+rotation = 0.5298193
+shape = SubResource("RectangleShape2D_hp7c2")

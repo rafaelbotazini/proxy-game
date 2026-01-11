@@ -1,7 +1,6 @@
-[gd_scene load_steps=133 format=3 uid="uid://chkqdlevq3eq4"]
+[gd_scene load_steps=132 format=3 uid="uid://cso8ddpug2vh"]
 
 [ext_resource type="Texture2D" uid="uid://dy1efw86jw6eg" path="res://assets/backgrounds/proxy_lobby_definitivo.png" id="1_5sf8s"]
-[ext_resource type="PackedScene" uid="uid://dbvhatrcm2bj3" path="res://scenes/stages/stage.tscn" id="1_ejsjw"]
 [ext_resource type="PackedScene" uid="uid://dfbum0obup42j" path="res://scenes/props/mesa_lobby.tscn" id="4_v7gah"]
 [ext_resource type="PackedScene" uid="uid://csd5n18pdvkmh" path="res://scenes/props/cadeira_frente.tscn" id="5_xfk4r"]
 [ext_resource type="PackedScene" uid="uid://civxy6w18itcy" path="res://scenes/props/cadeura_tras.tscn" id="6_7rky4"]
@@ -19,7 +18,17 @@
 [ext_resource type="PackedScene" uid="uid://b3noq4cawxqeh" path="res://scenes/characters/npcs/dialogue_npc.tscn" id="21_mlbf0"]
 [ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="22_mlbf0"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3co3h"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rky4"]
+size = Vector2(32, 66)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5k81"]
+radius = 20.0
+height = 44.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqp8q"]
+size = Vector2(36, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_koobs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlbf0"]
 atlas = ExtResource("21_7ounl")
@@ -417,7 +426,7 @@ region = Rect2(4559, 0, 47, 75)
 atlas = ExtResource("21_7ounl")
 region = Rect2(4606, 0, 47, 75)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tqbp6"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vqms"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -758,7 +767,7 @@ region = Rect2(336, 0, 48, 73)
 atlas = ExtResource("20_koobs")
 region = Rect2(384, 0, 48, 73)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vgvqx"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8jsn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -793,171 +802,169 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v008y"]
-size = Vector2(32, 66)
+[node name="Node2D" type="Node2D"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7pxt"]
-radius = 20.0
-height = 44.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k22ds"]
-size = Vector2(36, 20)
-
-[node name="Lobby" instance=ExtResource("1_ejsjw")]
-
-[node name="MainBackground" parent="Backgrounds" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(890, 284)
 texture = ExtResource("1_5sf8s")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Backgrounds" index="1"]
-position = Vector2(43, 48)
-physics_material_override = SubResource("PhysicsMaterial_3co3h")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Backgrounds/StaticBody2D" index="0"]
-polygon = PackedVector2Array(147, 134, 126, 157, 151, 168, 143, 180, 106, 179, 89, 196, 115, 211, 100, 223, 65, 220, -41, 321, -42, -48, 1736, -47, 1737, 313, 1326, 341, 1322, 335, 1646, 313, 1557, 187, 1582, 184, 1523, 90, 1474, 90, 1474, 99, 1303, 95, 1300, 90, 1269, 89, 1260, 38, 1261, 3, 1183, 4, 1178, 18, 1164, 19, 1165, 30, 1160, 39, 1150, 40, 1126, 121, 1126, 129, 1121, 137, 1100, 137, 1096, 135, 851, 134, 848, 139, 825, 139, 811, 135, 607, 134, 601, 143, 585, 142, 539, 135, 291, 135, 284, 142, 236, 139, 229, 135)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Backgrounds" index="2"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Backgrounds/StaticBody2D2" index="0"]
-polygon = PackedVector2Array(2, 370, 321, 370, 394, 247, 1109, 246, 1110, 334, 1015, 566, 1504, 545, 1642, 495, 1696, 367, 1776, 361, 1779, 569, 0, 568)
-
-[node name="enf1" parent="Actors/Enemies" index="0" instance=ExtResource("18_koobs")]
-position = Vector2(309, 232)
-
-[node name="enf2" parent="Actors/Enemies" index="1" instance=ExtResource("19_7ounl")]
-position = Vector2(666, 211)
-rotation = 0.00364962
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="Static" type="Node2D" parent="Actors/NPCs" index="0"]
+[node name="y_sorting" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="enf_puff" parent="Actors/NPCs/Static" index="0" instance=ExtResource("9_ud773")]
-position = Vector2(135, 258)
+[node name="entrada_lobby" type="Area2D" parent="y_sorting"]
+collision_layer = 16
+collision_mask = 2
 
-[node name="enf_1" parent="Actors/NPCs/Static" index="1" instance=ExtResource("10_vluv3")]
-position = Vector2(1572, 287)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/entrada_lobby"]
+position = Vector2(1594, 146)
+shape = SubResource("RectangleShape2D_7rky4")
 
-[node name="enf_2" parent="Actors/NPCs/Static" index="2" instance=ExtResource("11_qxrc5")]
-position = Vector2(1516, 283)
-
-[node name="enf_3" parent="Actors/NPCs/Static" index="3" instance=ExtResource("12_j0lqy")]
-position = Vector2(163, 249)
-
-[node name="woman_2" parent="Actors/NPCs/Static" index="4" instance=ExtResource("13_8txc5")]
-position = Vector2(1660, 152)
-
-[node name="Interactive" type="Node2D" parent="Actors/NPCs" index="1"]
-y_sort_enabled = true
-
-[node name="DialogueNpc" parent="Actors/NPCs/Interactive" index="0" instance=ExtResource("21_mlbf0")]
-position = Vector2(892, 191)
-
-[node name="mesa" parent="Actors/Props" index="0" instance=ExtResource("4_v7gah")]
+[node name="mesa" parent="y_sorting" instance=ExtResource("4_v7gah")]
 position = Vector2(1424, 318)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Props" index="1"]
+[node name="objetos" type="Node2D" parent="y_sorting"]
+y_sort_enabled = true
+
+[node name="cadeira_frente" parent="y_sorting/objetos" instance=ExtResource("5_xfk4r")]
+position = Vector2(1480, 301)
+
+[node name="cadeira_tras" parent="y_sorting/objetos" instance=ExtResource("6_7rky4")]
+position = Vector2(1372, 326)
+
+[node name="cadeira_frente7" parent="y_sorting/objetos" instance=ExtResource("5_xfk4r")]
+position = Vector2(1733, 421)
+
+[node name="cadeira_frente6" parent="y_sorting/objetos" instance=ExtResource("5_xfk4r")]
+position = Vector2(1686, 490)
+
+[node name="cadeira_frente5" parent="y_sorting/objetos" instance=ExtResource("5_xfk4r")]
+position = Vector2(1571, 525)
+
+[node name="cadeira_frente4" parent="y_sorting/objetos" instance=ExtResource("5_xfk4r")]
+position = Vector2(1556, 503)
+
+[node name="cadeira_frente3" parent="y_sorting/objetos" instance=ExtResource("5_xfk4r")]
+position = Vector2(1619, 311)
+
+[node name="cadeira_frente2" parent="y_sorting/objetos" instance=ExtResource("5_xfk4r")]
+position = Vector2(1603, 288)
+
+[node name="mesa5" parent="y_sorting/objetos" instance=ExtResource("4_v7gah")]
+position = Vector2(1514, 519)
+
+[node name="mesa4" parent="y_sorting/objetos" instance=ExtResource("4_v7gah")]
+position = Vector2(1635, 495)
+
+[node name="mesa3" parent="y_sorting/objetos" instance=ExtResource("4_v7gah")]
+position = Vector2(1682, 419)
+
+[node name="mesa2" parent="y_sorting/objetos" instance=ExtResource("4_v7gah")]
+position = Vector2(1561, 316)
+
+[node name="cadeira_tras2" parent="y_sorting/objetos" instance=ExtResource("6_7rky4")]
+position = Vector2(1519, 328)
+
+[node name="cadeira_tras3" parent="y_sorting/objetos" instance=ExtResource("6_7rky4")]
+position = Vector2(1458, 521)
+
+[node name="cadeira_tras4" parent="y_sorting/objetos" instance=ExtResource("6_7rky4")]
+position = Vector2(1478, 533)
+
+[node name="cadeira_tras5" parent="y_sorting/objetos" instance=ExtResource("6_7rky4")]
+position = Vector2(1612, 518)
+
+[node name="cadeira_tras6" parent="y_sorting/objetos" instance=ExtResource("6_7rky4")]
+position = Vector2(1632, 428)
+
+[node name="cadeira_tras7" parent="y_sorting/objetos" instance=ExtResource("6_7rky4")]
+position = Vector2(1659, 439)
+
+[node name="StaticBody2D" parent="y_sorting/objetos" instance=ExtResource("7_y7nig")]
+position = Vector2(168, 224)
+
+[node name="StaticBody2D2" parent="y_sorting/objetos" instance=ExtResource("8_ud773")]
+position = Vector2(136, 254)
+
+[node name="static_npc" type="Node2D" parent="y_sorting"]
+y_sort_enabled = true
+
+[node name="enf_puff" parent="y_sorting/static_npc" instance=ExtResource("9_ud773")]
+position = Vector2(135, 258)
+
+[node name="enf_1" parent="y_sorting/static_npc" instance=ExtResource("10_vluv3")]
+position = Vector2(1572, 287)
+
+[node name="enf_2" parent="y_sorting/static_npc" instance=ExtResource("11_qxrc5")]
+position = Vector2(1516, 283)
+
+[node name="enf_3" parent="y_sorting/static_npc" instance=ExtResource("12_j0lqy")]
+position = Vector2(163, 249)
+
+[node name="woman_2" parent="y_sorting/static_npc" instance=ExtResource("13_8txc5")]
+position = Vector2(1660, 152)
+
+[node name="Lab" type="Area2D" parent="y_sorting"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/Lab"]
+position = Vector2(25, 330)
+shape = SubResource("CapsuleShape2D_o5k81")
+
+[node name="porta_banheiro1" type="Area2D" parent="y_sorting"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/porta_banheiro1"]
+position = Vector2(1280, 43)
+shape = SubResource("RectangleShape2D_cqp8q")
+
+[node name="enf1" parent="y_sorting" instance=ExtResource("18_koobs")]
+position = Vector2(309, 232)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="y_sorting"]
+position = Vector2(43, 48)
+physics_material_override = SubResource("PhysicsMaterial_koobs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="y_sorting/StaticBody2D"]
+polygon = PackedVector2Array(147, 134, 126, 157, 151, 168, 143, 180, 106, 179, 89, 196, 115, 211, 100, 223, 65, 220, -41, 321, -42, -48, 1736, -47, 1737, 313, 1326, 341, 1322, 335, 1646, 313, 1557, 187, 1582, 184, 1523, 90, 1474, 90, 1474, 99, 1303, 95, 1300, 90, 1269, 89, 1260, 38, 1261, 3, 1183, 4, 1178, 18, 1164, 19, 1165, 30, 1160, 39, 1150, 40, 1126, 121, 1126, 129, 1121, 137, 1100, 137, 1096, 135, 851, 134, 848, 139, 825, 139, 811, 135, 607, 134, 601, 143, 585, 142, 539, 135, 291, 135, 284, 142, 236, 139, 229, 135)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="y_sorting"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="y_sorting/StaticBody2D2"]
+polygon = PackedVector2Array(2, 370, 321, 370, 394, 247, 1109, 246, 1110, 334, 1015, 566, 1504, 545, 1642, 495, 1696, 367, 1776, 361, 1779, 569, 0, 568)
+
+[node name="Sprite2D" type="Sprite2D" parent="y_sorting"]
+texture_filter = 1
 position = Vector2(251, 147)
-sprite_frames = SubResource("SpriteFrames_tqbp6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="y_sorting/Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_6vqms")
 script = ExtResource("22_mlbf0")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Actors/Props" index="2"]
+[node name="Sprite2D2" type="Sprite2D" parent="y_sorting"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="y_sorting/Sprite2D2"]
 texture_filter = 1
 position = Vector2(1328, 117)
 scale = Vector2(1.00038, 0.999373)
-sprite_frames = SubResource("SpriteFrames_vgvqx")
-frame_progress = 0.07421311
+sprite_frames = SubResource("SpriteFrames_t8jsn")
+frame_progress = 0.832612
 script = ExtResource("22_mlbf0")
 
-[node name="cadeira_frente" parent="Actors/Props" index="3" instance=ExtResource("5_xfk4r")]
-position = Vector2(1480, 301)
+[node name="enf2" parent="y_sorting" instance=ExtResource("19_7ounl")]
+position = Vector2(666, 211)
+rotation = 0.00364962
 
-[node name="cadeira_tras" parent="Actors/Props" index="4" instance=ExtResource("6_7rky4")]
-position = Vector2(1372, 326)
+[node name="DialogueNpc" parent="y_sorting" instance=ExtResource("21_mlbf0")]
+position = Vector2(892, 191)
 
-[node name="cadeira_frente7" parent="Actors/Props" index="5" instance=ExtResource("5_xfk4r")]
-position = Vector2(1733, 421)
+[node name="Spawn_entrada_lobby" type="Marker2D" parent="."]
+position = Vector2(1567, 177)
 
-[node name="cadeira_frente6" parent="Actors/Props" index="6" instance=ExtResource("5_xfk4r")]
-position = Vector2(1686, 490)
-
-[node name="cadeira_frente5" parent="Actors/Props" index="7" instance=ExtResource("5_xfk4r")]
-position = Vector2(1571, 525)
-
-[node name="cadeira_frente4" parent="Actors/Props" index="8" instance=ExtResource("5_xfk4r")]
-position = Vector2(1556, 503)
-
-[node name="cadeira_frente3" parent="Actors/Props" index="9" instance=ExtResource("5_xfk4r")]
-position = Vector2(1619, 311)
-
-[node name="cadeira_frente2" parent="Actors/Props" index="10" instance=ExtResource("5_xfk4r")]
-position = Vector2(1603, 288)
-
-[node name="mesa5" parent="Actors/Props" index="11" instance=ExtResource("4_v7gah")]
-position = Vector2(1514, 519)
-
-[node name="mesa4" parent="Actors/Props" index="12" instance=ExtResource("4_v7gah")]
-position = Vector2(1635, 495)
-
-[node name="mesa3" parent="Actors/Props" index="13" instance=ExtResource("4_v7gah")]
-position = Vector2(1682, 419)
-
-[node name="mesa2" parent="Actors/Props" index="14" instance=ExtResource("4_v7gah")]
-position = Vector2(1561, 316)
-
-[node name="cadeira_tras2" parent="Actors/Props" index="15" instance=ExtResource("6_7rky4")]
-position = Vector2(1519, 328)
-
-[node name="cadeira_tras3" parent="Actors/Props" index="16" instance=ExtResource("6_7rky4")]
-position = Vector2(1458, 521)
-
-[node name="cadeira_tras4" parent="Actors/Props" index="17" instance=ExtResource("6_7rky4")]
-position = Vector2(1478, 533)
-
-[node name="cadeira_tras5" parent="Actors/Props" index="18" instance=ExtResource("6_7rky4")]
-position = Vector2(1612, 518)
-
-[node name="cadeira_tras6" parent="Actors/Props" index="19" instance=ExtResource("6_7rky4")]
-position = Vector2(1632, 428)
-
-[node name="cadeira_tras7" parent="Actors/Props" index="20" instance=ExtResource("6_7rky4")]
-position = Vector2(1659, 439)
-
-[node name="StaticBody2D" parent="Actors/Props" index="21" instance=ExtResource("7_y7nig")]
-position = Vector2(168, 224)
-
-[node name="StaticBody2D2" parent="Actors/Props" index="22" instance=ExtResource("8_ud773")]
-position = Vector2(136, 254)
-
-[node name="Default" parent="SpawnPoints" index="0"]
-position = Vector2(1550, 169)
-
-[node name="Spawn_porta_lab" type="Marker2D" parent="SpawnPoints" index="1"]
+[node name="Spawn_porta_lab" type="Marker2D" parent="."]
 position = Vector2(91, 325)
 
-[node name="Spawn_saida_banheiro1" type="Marker2D" parent="SpawnPoints" index="2"]
+[node name="Spawn_saida_banheiro1" type="Marker2D" parent="."]
 position = Vector2(1278, 65)
-
-[node name="entrada_lobby" type="Area2D" parent="." index="3"]
-collision_layer = 16
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="entrada_lobby" index="0"]
-position = Vector2(1594, 146)
-shape = SubResource("RectangleShape2D_v008y")
-
-[node name="Lab" type="Area2D" parent="." index="4"]
-collision_layer = 16
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lab" index="0"]
-position = Vector2(25, 330)
-shape = SubResource("CapsuleShape2D_f7pxt")
-
-[node name="porta_banheiro1" type="Area2D" parent="." index="5"]
-collision_layer = 16
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="porta_banheiro1" index="0"]
-position = Vector2(1280, 43)
-shape = SubResource("RectangleShape2D_k22ds")

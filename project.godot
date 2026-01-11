@@ -91,6 +91,7 @@ ui_interact={
 2d_physics/layer_5="CharacterDamageReceiver"
 2d_physics/layer_6="PlayerDamageReceiver"
 2d_physics/layer_7="EnemyDamageReceiver"
+2d_physics/layer_9="Portals"
 2d_physics/layer_10="InvisibleWalls"
 
 [rendering]

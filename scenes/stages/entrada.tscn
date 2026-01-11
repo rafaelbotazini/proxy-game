@@ -1,76 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://chb3iwv7uor"]
+[gd_scene load_steps=5 format=3 uid="uid://of87h8onj8hk"]
 
-[ext_resource type="Script" uid="uid://foeq67uf6njc" path="res://scripts/entrada.gd" id="1_u3coe"]
+[ext_resource type="PackedScene" uid="uid://dbvhatrcm2bj3" path="res://scenes/stages/stage.tscn" id="1_4llqc"]
 [ext_resource type="Texture2D" uid="uid://crb6bvj7ijahu" path="res://assets/backgrounds/entrada.png" id="1_y4pcb"]
-[ext_resource type="Script" uid="uid://b84f8u4ooookc" path="res://scripts/entrada_escada.gd" id="4_u3coe"]
+[ext_resource type="PackedScene" uid="uid://p0c81gmvp3rr" path="res://scenes/colliders/doorway.tscn" id="3_d0flt"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_kvovc"]
-a = Vector2(82, 152)
-b = Vector2(47, 206)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d0co"]
+size = Vector2(10, 86.84279)
 
-[sub_resource type="GDScript" id="GDScript_qvomv"]
-script/source = "extends Area2D
+[node name="entrada" instance=ExtResource("1_4llqc")]
 
-@export var spawn_destino := \"porta_entradaS\"
-@export var proxima_cena : String = \"res://mapa.tscn\"
-
-func _ready():
-	# Conecta o sinal body_entered à função _on_body_entered
-	body_entered.connect(_on_body_entered)
-
-func _on_body_entered(body: Node):
-	if body.is_in_group(\"Player\"):
-
-		Global.spawn_id = spawn_destino
-		call_deferred(\"_trocar_cena\")
-
-
-
-func _trocar_cena():
-	get_tree().change_scene_to_file(proxima_cena)
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvomv"]
-size = Vector2(20, 68.5)
-
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_u3coe")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
+[node name="MainBackground" parent="Backgrounds" index="0"]
 position = Vector2(335, 105)
 texture = ExtResource("1_y4pcb")
 
-[node name="Spawn_porta_entrada" type="Marker2D" parent="."]
-position = Vector2(660, 166)
+[node name="StaticBody2D" type="StaticBody2D" parent="Backgrounds" index="1"]
 
-[node name="y_sorting" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="porta_escada" type="Area2D" parent="y_sorting"]
-position = Vector2(335, 105)
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("4_u3coe")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/porta_escada"]
-position = Vector2(-335, -105)
-shape = SubResource("SegmentShape2D_kvovc")
-
-[node name="porta_mapa" type="Area2D" parent="y_sorting"]
-position = Vector2(335, 105)
-collision_layer = 16
-collision_mask = 2
-script = SubResource("GDScript_qvomv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sorting/porta_mapa"]
-position = Vector2(343, 68)
-shape = SubResource("RectangleShape2D_qvomv")
-
-[node name="Spawn_escada_entrada" type="Marker2D" parent="."]
-position = Vector2(81, 181)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Backgrounds/StaticBody2D" index="0"]
 polygon = PackedVector2Array(43, 207, 81, 150, 85, 152, 308, 154, 317, 150, 335, 153, 341, 145, 342, 132, 376, 131, 376, 138, 413, 138, 417, 131, 486, 131, 485, 109, 554, 109, 594, 151, 670, 150, 669, 209, 0, 209, -1, 209, 679, 214, 674, -5, -7, -6, -2, 208)
+
+[node name="Default" parent="SpawnPoints" index="0"]
+position = Vector2(646, 178)
+
+[node name="Escada" type="Marker2D" parent="SpawnPoints" index="1"]
+position = Vector2(98, 179)
+
+[node name="SaidaPorta" parent="." index="3" instance=ExtResource("3_d0flt")]
+position = Vector2(668, 176)
+stage_path = "res://scenes/stages/mapa.tscn"
+spawn_id = "EntradaPortaFrente"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SaidaPorta" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_6d0co")
+
+[node name="SaidaEscada" parent="." index="4" instance=ExtResource("3_d0flt")]
+position = Vector2(66, 176)
+rotation = 0.568015
+stage_path = "res://scenes/stages/lobby.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SaidaEscada" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_6d0co")

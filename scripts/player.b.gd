@@ -70,7 +70,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		start_attack()
 
-func _update_animation(direction: Vector2):
+func _update_animation(_direction: Vector2):
 	if direction == Vector2.ZERO:
 		sprite.play("idle")
 	else:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c5ipapoieb86e" path="res://assets/ui/VidaFundo.png" id="1_aac20"]
 [ext_resource type="Texture2D" uid="uid://tcso3rygu827" path="res://assets/ui/VidaBarra.png" id="2_g5kmx"]
-[ext_resource type="Script" uid="uid://chyiak4g3nvgo" path="res://scripts/progress_bar.gd" id="3_0dwhk"]
+[ext_resource type="Script" uid="uid://chyiak4g3nvgo" path="res://scenes/ui/progress_bar.gd" id="3_0dwhk"]
 
 [node name="UI" type="CanvasLayer"]
 

@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://7m2n0rr2vpiq" path="res://scripts/animated_sprite_2d.gd" id="6_l7hk8"]
 [ext_resource type="PackedScene" uid="uid://cqnq3tu7bnati" path="res://scenes/characters/enemies/Noel.tscn" id="6_v7uy7"]
 [ext_resource type="Texture2D" uid="uid://tcso3rygu827" path="res://assets/ui/VidaBarra.png" id="7_l7hk8"]
-[ext_resource type="Script" uid="uid://chyiak4g3nvgo" path="res://scripts/progress_bar.gd" id="8_v7uy7"]
+[ext_resource type="Script" uid="uid://chyiak4g3nvgo" path="res://scenes/ui/progress_bar.gd" id="8_v7uy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixla5"]
 size = Vector2(17.9996, 222)

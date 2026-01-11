@@ -205,7 +205,7 @@ func _physics_process(delta):
 # -------------------------
 # Estados
 # -------------------------
-func _idle_state(delta):
+func _idle_state(_delta: float):
 	if player and is_instance_valid(player):
 		state = "walking"
 	else:
@@ -214,7 +214,7 @@ func _idle_state(delta):
 			_pick_new_direction()
 			state = "walking"
 
-func _walking_state(delta):
+func _walking_state(_delta: float):
 	if player and is_instance_valid(player):
 		var distance = global_position.distance_to(player.global_position)
 
@@ -245,7 +245,7 @@ func _walking_state(delta):
 			_pick_new_direction()
 
 
-func _attacking_state(delta):
+func _attacking_state(_delta: float):
 	if state == "hurt" or is_stunned:
 		return
 	if not player or not is_instance_valid(player):
